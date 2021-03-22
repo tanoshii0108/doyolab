@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="jp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GitとHTMLの運用開始(2021/03/22)</title>
+    
+    <link rel="stylesheet" href="main.css">
+</head>
+
+
+<body>
+    <!--ホームに帰るためのボタン-->
+    <logotohome>
+    <a href="index.html"><img src="images/logo.png" alt=""></a>
+    </logotohome>
+
+    <!--h1は見出し１（大見出し）-->
+    <h1>GitとHTMLの運用開始(2021/03/22)</h1>
+        <!--h2は見出し2（中見出し）-->
+        <h2>●Gitを使い始める</h2>
+            <!--h3は見出し3（小見出し）-->
+            <h3>①Git Bushをインストール</h3>
+            <!--pは段落-->
+            <p>
+                <!--a href はリンク-->
+                私はWindowsを利用しているため、<a href="https://doyodoyo.github.io/doyolab/01_git_prepare/git_win.html/">このページ</a>を参照し、適宜インストーラーで必要項目にチェックを入れた上でインストールを完了させます。
+                <br><!--brは改行-->
+            </p>
+            <h3>②Gitの初期設定</h3>
+            <!--pは段落-->
+            <p>
+                まずは、インストール完了後のGit Bushで、Git用のフォルダを作成しましょう。<br><!--brは改行-->
+                立ち上げたGit Bushに下記のコマンドを入力します。<br>
+                すると、ユーザーフォルダにmygitという名前のフォルダが作成されます。<br>
+                <!--部分的に黒バックにする。cssにプロパティは記述-->
+                <span class="blackback">
+                    mkdir mygit
+                </span>
+
+            <p>
+                フォルダが作成出来たら、Git BushからGitの初期設定を行います。<br>
+                下記のコマンドを入力して、Enterキーを押します。<br>
+                <span class="blackback">
+                    git init
+                </span>
+
+            <p>
+                つぎに、メールアドレスの設定のために下記のコマンドを入力します。<br>
+                有効なメールアドレスを当てはめて、入力出来たらEnterキーを押します。<br>
+                <span class="blackback">
+                    git config --global user.email "自分のメールアドレス"
+                </span>
+
+            <p>
+                最後に、名前の設定のために下記のコマンドを入力します。<br>
+                ここで入力する名前は公開されるものではないので、本名でも構いません。<br>
+                入力出来たらEnterキーを押して、Git Bushで行う初期設定は終了です。<br>
+                <span class="blackback">
+                    mkdir mygit
+                </span>
+            </p>
+
+        　　<h3>③GitHubでアカウントの作成</h3>
+            <p>
+            <a href="https://github.com/">このページ</a>から、GitHabのアカウントを作成します。<br>
+            「サインアップ」をクリックして、記入を求められた項目を埋めていきます。<br>
+            この時、登録するユーザーネームは作成するサイトのURLに埋め込まれるので本名出なくてもよいです。<br>
+            ※設定したユーザーネーム、メールアドレス、パスワードは記録しておきましょう。
+            </p>
+
+            <h3>④リポジトリーの作成と設定</h3>
+            <p>
+                githubの右上にある+マークをクリックし、New Repositoryをクリックし、新しいリポジトリーを作ります。<br>
+                <img src="images/20190611/createrepo.png" width="30%">
+            
+            <p>
+                下記の画像を参照して、doyolabというリポジトリーを作成します。<br>
+                一番下のチェックボックスは、画像と文章が変わっていますが、READMEに関連するチェックボックスにチェックを入れましょう。<br>
+                <img src="images/20190611/step1.png" width="80%">
+            
+            <p>
+                リポジトリーのSettingsから設定を行います。<br>
+                下記の画像の赤枠部分からMainを選択します。<br>
+                (画像ではmaster　branchを選ぶようになっているが、このページ編集時点ではMainを選択)
+                <img src="images/20190611/step1-1.png" width="80%">
+            </p>
+
+            <h3>⑤リポジトリーのクローン</h3>
+            <p>
+                githubのdoyolabというリポジトリーの中で、下記のボタンを押してリポジトリーのURLをコピーします。<br>
+                <img src="images/20190611/step2.png" width="80%"><br>
+                
+                Git BushとGithubを同期させるために、mygitにリポジトリをクローンするのでGit Bushでの作業に移動します。<br><br>
+                Git Bushを開いて、下記のコマンドでmygitフォルダに移動します。cdはchange directoryの略です<br>
+                <span class="blackback">
+                    cd mygit
+                </span>
+            <p>
+                自分のPCにリポジトリをクローンしていきます。<br>
+                Git Bushで下記のコマンドを入力し、クローンを作成します。(URLは上でコピーしたURLです。)<br>
+                <span class="blackback">
+                    git clone リポジトリのURL
+                </span><br><br>
+                mygitの中にdoyolabというフォルダができて、doyolabフォルダの中にREADME.mdファイルが入っていれば成功です。<br>
+            </p>
+
+            <h3>⑥サンプルファイルをdoyolabフォルダにダウンロードする</h3>
+            <p>
+                編集する際にベースとなるサンプルのページファイルが、教員から圧縮ファイルで送られてきたためダウンロードして展開します。<br>
+                サンプルファイルのdoyolabの中身を、丸ごとmygit内のdoyolabの中にコピーして貼り付けます。<br>
+                コピー出来ているか確認するために、Git Bushに下記のコマンドを入力しEnterキーを押します。<br>
+                <span class="blackback">
+                    git status
+                </span><br>
+                Git Bush内に、コピーしたファイルの数と名前が間違いなく表示されれば問題ありません。<br>
+            </p>
+
+            <h3>⑦運用(ファイルを追加、変更したときにGithubに反映させる)</h3>
+            <p>
+                htmlファイルをdoyolabフォルダに入れたら、下記の手順でgithubへアップロードできます。<br>
+                <span class="blackback">
+                    cd mygit/doyolab
+                </span><br>
+                (Git Bush内でdoyolabフォルダに移動するコマンド。/で階層を変える。既にアップロードしたいフォルダにいる場合は省略してよいです。)
+                <br>
+                <span class="blackback">
+                    git add .
+                </span>
+                <br>
+                <span class="blackback">
+                    git commit -m"メッセージ"
+                </span><br>
+                (メッセージ部分は更新のたびに違う文言を入れたほうが良いです。日付＋回数などで名づけましょう。)
+                <br>
+                <span class="blackback">
+                    git push
+                </span>
+                <br>
+                これでGithubにアクセスして自分のページに変更が反映されていたら、更新されていることが確認できます。
+            </p>
+
+            <h2>●HTMLを編集する</h2>
+            <h3>①Visual stadio Codeをインストール</h3>
+            <p>
+                HTMLを編集するためのエディタをダウンロードします。<br>
+                <a href="https://code.visualstudio.com/download">このページ</a>からインストーラーをダウンロードして、インストールを完了させます。
+                <br>
+            </p>
+
+            <h3>②VSCodeの日本語化</h3>
+            <p>
+                まずは、インストール完了後のVSCodeを起動します。最初に日本語化を行いましょう。<br><!--brは改行-->
+                VSCodeのサイドバーのいちばん下、4つの四角が固まったようなアイコンをクリック。<br>
+                検索ボックスに「Japanese Language Pack」と入力し、いちばん上に出てきたものをインストール･有効化して再起動します。<br>
+            </p>
+
+            <h3>③プレビュー機能を適用させる</h3>
+            <p>
+                先程と同じく、VSCodeのサイドバーのいちばん下、4つの四角が固まったようなアイコンをクリック。<br>
+                検索ボックスに「HTML Preview」と入力し、いちばん上に出てきたものをインストール･有効化します。<br>
+                この機能を適用すると、HTML編集時に編集画面右上の4つのアイコンの左から2番目(Open Preview to the side)を押すことでプレビュー表示を見て作業が可能になります。<br>
+            </p>
+
+            <h3>④HTMLを編集してみる</h3>   
+            <p>
+                最後に、サンプルファイルをもとにHTMLを編集してみます。<br>
+                VSCodeを開き、サイドバーのいちばん上を選んだ状態で、編集したいHTMLファイルを編集画面にドラッグ&ドロップします。<br>
+                すると、HTMLファイル内のコードが表示されるので編集可能になります。プレビューを開きながら編集してみましょう。<br><br>
+
+                サンプルファイル内のページに、Yahoo!のページに飛ぶリンクを組み込んだ自分の名前と画像を追加してみましょう。<br><br>
+
+                リンク付きの文字を表示させたい場合は下記のタグを用います。<br>
+                <span class="blackback">
+                    &lt;a href="リンク先のURL"&gt;自分の名前(リンクにしたい文字列)&lt;/a&gt;
+                </span><br><br>
+
+                画像をページ内に表示させたい場合は下記のタグを用います。<br>
+                <span class="blackback">
+                    &lt;img src="画像のURL"&gt;
+                </span><br>
+                上記2つのタグを、編集中のコードに組み込めば、プレビュー内に画像とリンク付きの文字が表示されているはずです。<br>
+                HTMLファイルに変更を加えたら、このページのGitの章で前述した⑦の工程を忘れず行いましょう。<br>
+                これを行わないと、本物のページに変更が反映されないので注意しましょう。<br>
+            </p>
+
+            <h3>●課題への取り組み</h3>    
+            <p>
+                今回学んだ内容や様々なタグを用いて、今回の授業の内容を自分のページにまとめました。<br>
+                HTMLファイルをコピーしてVSCodeで開き、定義コードのみ残して授業まとめページのベースとして利用しました。<br>
+                授業内で作ったindexページを自分の仕様に変更し、その中に先程作った授業のまとめページへ飛べるリンクを作成しました。<br><br>
+
+                【使ったタグ一覧】<br>
+
+                <span class="blackback">
+                    ■&lt;h1&gt;・・・&lt;/h1&gt;  &ensp; &ensp;大見出し<br><br>
+                    ■&lt;h2&gt;・・・&lt;/h2&gt;  &ensp; &ensp;中見出し<br><br>
+                    ■&lt;h3&gt;・・・&lt;/h3&gt;  &ensp; &ensp;小出し<br><br>
+                    ■&lt;br&gt;  &ensp; &ensp;改行<br><br>
+                    ■&lt;p&gt;・・・&lt;/p&gt;  &ensp; &ensp;段落<br><br>
+                    ■&lt;span class="blackback"&gt;・・・&lt;/span&gt;  &ensp; &ensp;文字の背景色を黒くする<br><br>
+                    ■&lt;a href="リンク先のURL"&gt;・・・(リンクにしたい文字列)&lt;/a&gt;  &ensp; &ensp;文字からリンクに飛べるようにする<br><br>
+                    ■&lt;img src="画像のURL"&gt;  &ensp; &ensp;画像を表示<br><br>
+                </span>
+            </p>
+        
+
+</body>
