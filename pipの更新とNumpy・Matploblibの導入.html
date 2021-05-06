@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NumPy＆Matplotlibの導入</title>
+
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+
+<body>
+    <!--ホームに帰るためのボタン-->
+    <logotohome>
+    <a href="index.html"><img src="images/ポートフォリオロゴ.png" alt=""></a>
+    </logotohome>
+
+    <!--h1は見出し１（大見出し）-->
+    <h1>NumPy＆Matplotlibの導入(2021/05/06)</h1>
+
+    <h2>●pipの更新</h2>
+    pipとは、公式や外部から配布されるパッケージを管理するツールのこと。<br>
+    NumPyやMatplotlibをインストールする前に、これを最新版にアップデートしておく。<br>
+
+    <h3>①Pycharmを起動して設定画面を開く</h3>
+    私の場合、過去の授業においてPycharmの導入を済ませているため、Pycharm上でpipの更新を行う。<br>
+    Pycharmが起動したら、「File」→「Settings」の順番でクリックし、設定ウィンドウを開く。<br>
+    <img src="images/pipの更新①.png" width="60%">
+
+    <h3>②pipの設定場所を開く</h3>
+    左側のバーから「Project ○○」→「Python Interpreter」と順番に開く。<br>
+    右側にpipの更新やパッケージのインストールが行える画面が開く。<br>
+    <img src="images/pipの更新②.png" width="60%">
+    
+    <h3>②pipの最新版に更新する</h3>
+    先ほど開いた画面から「pip」を選択、自分が使っているpipのバージョンと最新版を見比べて、最新版になっていなければ更新する。<br>
+    更新は、ウィンドウ右側の△マークをダブルクリックで開始する。<br>
+    <img src="images/pipの更新③.png" width="60%">
+
+    <h3>※pipの更新でTimeoutエラーが出た場合</h3>
+    pipの更新でエラーが発生した場合、詳細画面を開くと下記画像のようなエラーの詳細が分かる画面を見ることが出来る。<br>
+    この画面から、Timeout関連のエラーであることが読み取れる場合は、(私が使用しているOSはWindowsのため)コマンドプロンプトでの作業が必要。<br>
+    <img src="images/pipの更新のエラー.png" width="60%"><br>
+    コマンドプロンプトを開き、<br>
+    <span class="blackback">
+        python -m pip --default-timeout=100 install -U pip
+    </span>と入力する。<br>
+    「--default-timeout=100」の部分でインストールがタイムアウトさせられるまでの時間を指定できるので、自分のインストールに要する時間に十分に足りるように100の部分の数値を調節するとよい。<br>
+
+    <h2>●NumPyとMatplotlibをインストールする</h2>
+    NumPyは数値計算を効率化・高速化することが可能なライブラリ。<br>
+    Matplotlibはグラフ描写によって計算結果の視覚化を可能にするライブラリ。<br>
+    それぞれ、作業を効率化したり途中の状況を分かりやすくすることを助けてくれるため採用。<br><br>
+
+    pipの更新の際も開いたインタープリターの画面で、今回は△マークではなく＋マークをクリックし、パッケージの追加画面に移行。<br>
+    <img src="images/パッケージの追加.png" width="60%"><br>
+    下記の画像にしたがってNumPyとMatplotlibをそれぞれインストール完了させる。<br><br>
+
+    ○NumPy<br>
+    <img src="images/Numpyのインストール①.png" width="60%"><br>
+    <img src="images/Numpyのインストール②.png" width="60%"><br>
+    ○Matplotlib<br>
+    <img src="images/Matplotlibのインストール①.png" width="60%"><br>
+    <img src="images/Matplotlibのインストール②.png" width="60%"><br><br>
+
+    本日の投稿はここまで。ありがとうございました。
+
+
+
+</body>
