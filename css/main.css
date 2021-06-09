@@ -129,3 +129,6 @@ span.blackback{
     background: #393939;
     color: #efefef;
 }
+video{
+    width: 100%;
+}
