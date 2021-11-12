@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ブラウザ上での録音</title>
+
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+
+<body>
+    <!--ホームに帰るためのボタン-->
+    <logotohome>
+    <a href="index.html"><img src="images/ポートフォリオロゴ.png" alt=""></a>
+    </logotohome>
+
+    <!--h1は見出し１（大見出し）-->
+    <h1>ブラウザ上での録音(2021/11/12)</h1>
+
+    <h2>●コードの内容(コメントアウトにて解説あり)</h2>
+    ①html<br>
+    <img src="images/録音htmlコード.png" width="60%"><br><br>
+    ②js<br>
+    <img src="images/録音jsコード①.png" width="60%"><br>
+    <img src="images/録音jsコード②.png" width="60%"><br>
+    <img src="images/録音jsコード③.png" width="60%"><br>
+
+    <h2>●出力結果</h2>
+    マイクの呼び出しに成功し、途中で止まっているわけではないが、blobに音声ストリームが保存されていないらしくシステム上で扱えない。<br><br>
+    <img src="images/音声取得時のエラー.png" width="60%"><br>
+
+    <h2>●次やること</h2>
+    ・ブラウザの種類を変えたり、コード自体に穴がないか検証。<br>
+    ・子供の声の音声コーパスを見つけたので年齢推定の学習に使う。<br>
+
+    <h2>●参考にしたサイト</h2>
+    ・https://qiita.com/optimisuke/items/f1434d4a46afd667adc6<br>
+    ・https://developer.mozilla.org/ja/docs/Web/API/MediaDevices/getUserMedia<br>
+    ・https://developer.mozilla.org/ja/docs/Web/API/MediaRecorder<br>
+    ・https://developer.mozilla.org/ja/docs/Web/API/Blob<br>
+    ・https://developer.mozilla.org/ja/docs/Web/API/MediaRecorder/ondataavailable<br>
+    ・https://developer.mozilla.org/ja/docs/Web/API/Document/querySelector<br>
+    ・https://postd.cc/easy-audio-capture-with-the-mediarecorder-api/<br><br>
+
+    本日の投稿はここまで。ありがとうございました。
+
+
+
+</body>
