@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> 大量の描画をする際のエラー対処</title>
+
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+
+<body>
+    <!--ホームに帰るためのボタン-->
+    <logotohome>
+    <a href="index.html"><img src="images/ポートフォリオロゴ.png" alt=""></a>
+    </logotohome>
+
+    <!--h1は見出し１（大見出し）-->
+    <h1>大量の描画をする際のエラー対処(2022/01/15)</h1>
+
+    <h2>●エラーの内容</h2>
+    音声ファイルを投げると、音声波形画像に変換して返してくれるコードの実行中、<br>
+    369ファイル目の変換が完了したところで、<br>
+    <!--部分的に黒バックにする。cssにプロパティは記述-->
+    <span class="blackback">
+      fail to allocate bitmap
+    </span><br>
+    というエラーをはいて処理落ちしてしまう。何回やっても同じエラー。<br>
+    <h2>●エラーの原因</h2>
+    ①メモリー不足<br>
+    ②Matplotlibで大量のグラフを描画する際の処理落ち<br>
+    <h2>●エラーの対処法</h2>
+    結論から言えば、今回の私のエラーは②を解決することで無くなりました。<br>
+    しかし、①と②どちらの原因も考慮し試行錯誤したので共有します。<br><br>
+
+    ①メモリー不足<br>
+    →処理中に発生したデータは、スタックに堆積し続けるので、一気に実行する処理を小分けにしたり、処理に使わなくなったデータを削除することでメモリーを開放する必要がある。<br><br>
+
+    ・リストを分割してFor文でループさせることで、リスト内のデータを一気に処理するのではなく小分けずつ処理。<br><br>
+
+    ・Del文やplt.close()、plt.clf()、plt.cla()などで使わなくなった要素を削除、gc.collect()で削除した要素の分のメモリーを直ちに解放。<br>
+    ※しかし、gc.collect()は乱用注意らしいので、メモリー解放する必要がある際は自分の症例などをしっかり把握してから試すのがいいと思います。<br><br>
+
+    ・PyCharmを利用している場合は、メモリヒープというメモリ使用量の上限設定があるので、必要な分までVMoptionのXmxの値を設定変更する(図解あり)。<br>
+    <img src="images/VMoptionを開く.png" width="60%"><br>
+    <img src="images/VMoption編集画面.png" width="60%"><br><br>
+
+    ②Matplotlibで大量のグラフを描画する際の処理落ち<br>
+    →Matplotlibで大量のグラフを描画する際、Matplotlibのバックエンド設定をAggに指定する必要がある。<br>
+    その際、記述の順番に注意が必要。<br><br>
+
+    ●失敗する記述<br>
+    <span class="blackback">
+      import matplotlib<br>
+      import matplotlib.pyplot as plt<br>
+      matplotlib.use('Agg')<br>
+    </span><br>
+
+    ●正しい記述<br>
+    <span class="blackback">
+      import matplotlib<br>
+      matplotlib.use('Agg')<br>
+      import matplotlib.pyplot as plt<br>
+    </span><br>
+    理由→pyplotをインポートするより先に、Matplotlib自体のバックエンド設定を定義しておく必要があるから。<br><br>
+
+
+    <h2>●参考にしたサイト</h2>
+    ・https://teratail.com/questions/282270<br>
+    ・https://fijixfiji.hatenablog.com/entry/2016/12/17/001226<br>
+    ・https://www.sejuku.net/blog/74447<br>
+    ・https://tipstour.net/python-list-slice<br>
+    ・https://hytmachineworks.hatenablog.com/entry/2018/02/25/230734<br><br>
+
+    本日の投稿はここまで。ありがとうございました。
+
+</body>
