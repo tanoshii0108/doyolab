@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> 【年齢推定】学習データの準備</title>
+
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+
+<body>
+    <!--ホームに帰るためのボタン-->
+    <logotohome>
+    <a href="index.html"><img src="images/ポートフォリオロゴ.png" alt=""></a>
+    </logotohome>
+
+    <!--h1は見出し１（大見出し）-->
+    <h1>【年齢推定】学習データの準備(2022/01/16)</h1>
+
+    今回は、既存のデータセットとcsvファイルを年齢推定に必要な形に加工して、Neural Network Consoleで学習可能な形に準備します。<br>
+
+    <h2>●既存のデータセット</h2>
+    ・<a href="https://commonvoice.mozilla.org/en/datasets">Mozilla CommonVoice</a><br>
+    日本語を指定してデータセットをダウンロード。<br>
+    ダウンロードしたTARファイルを展開すると、mp3の音声ファイルが集まったフォルダとcsvファイルやtsvファイルが入っている。<br><br>
+
+    <h2>●音声ファイルから画像ファイルへの変換</h2>
+    以前作成した、<a href="大量の描画をする際のエラー対処.html">こちらのページ</a>で改良したコードでCommon Voiceの音声ファイルをメル周波数スペクトログラム変換し、pngファイルとして新たに保存します。<br><br>
+    
+    <h2>●csvファイルの加工</h2>
+    ①下記画像のコードで、必要な要素を取り出した新たなcsvファイルを作成、出力したものをエクセルで開く。<br>
+    <img src="images/csvファイルの編集.png" width="60%"><br><br>
+    ②エクセルで適切な形に整える。<br>
+    ●ファイル名の拡張子をmp3からpngに置換。<br>
+    エクセルのツールバーから「ホーム」→「検索と選択」→「置換」を開く。<br>
+    検索する文字列に「mp3」、置換後の文字列に「png」を指定して、「すべて置換」を選ぶ。<br>
+    <img src="images/エクセル文字列の置換.png" width="60%"><br><br>
+    ●不要なカラムを削除する<br>
+    csvファイルを読み込む際に仮で生成したカラムを、1行目をまとめて削除して消す。<br>
+    <img src="images/不要なカラムの削除.png" width="60%"><br><br>
+    ●データセットのファイル名を相対パスの形にする。<br>
+    エクセルの関数を利用して、ファイル名を相対パスの形にする。<br>
+    <img src="images/ファイル名を列ごと相対パスにする①.png" width="60%"><br>
+    <img src="images/ファイル名を列ごと相対パスにする②.png" width="60%"><br>
+    <img src="images/ファイル名を列ごと相対パスにする③.png" width="60%"><br>
+    <img src="images/ファイル名を列ごと相対パスにする④.png" width="60%"><br><br>
+    
+
+    <h2>●参考にしたサイト</h2>
+    ・http://blog.mwsoft.jp/article/113600124.html<br>
+    ・https://note.nkmk.me/python-pandas-index-row-column/<br>
+    ・https://tech-and-investment.com/pandas7-csv-write/<br>
+    ・https://proclass.jp/blog/?p=6044<br><br>
+
+    今回の投稿はここまで。ありがとうございました。
+
+</body>
