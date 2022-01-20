@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> 【Keras】CNNによる年代推定</title>
+
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+
+<body>
+    <!--ホームに帰るためのボタン-->
+    <logotohome>
+    <a href="index.html"><img src="images/ポートフォリオロゴ.png" alt=""></a>
+    </logotohome>
+
+    <!--h1は見出し１（大見出し）-->
+    <h1>【Keras】CNNによる年代推定(2022/01/21)</h1>
+
+    今回は、Kerasを用いてCNNによる年代推定の分類器を作成する。<br>
+
+    <h2>●データセットと学習モデル作成ツールの変更</h2>
+    ・データセット<br>
+    CommonVoiceの日本語データセット<br>
+    …年齢の偏りとラベルの欠損が多く扱いづらい。<br>
+    CommonVoiceの英語データセット<br>
+    …データが膨大すぎて扱いきれない。メル周波数フーリエ変換が完了するまで7日要する【進行中】。<br>
+    JVSコーパスのnonpara_3000の中の1000データ　←イマココ<br>
+    …印象推定の学習用に用意していたものに、手作業で「male_old」、「female_old」、「male_young」、「female_young」の四つ分類ラベルを施した。<br><br>
+
+    ・学習モデル作成ツール<br>
+    SonyのNeural Network Console(NNC)を利用する方針だったが、フォルダの参照の際にどうしてもアクセス権限に引っかかるので今回は利用を断念。<br>
+    pythonのライブラリKerasを用いて、シンプルなCNNモデルを作成することにした。<br><br>
+
+    <h2>●主に参考にしている動画</h2>
+    ・<a href="https://youtu.be/4yrTAwwgNZA">人工知能で毒キノコを判別しよう - #4 画像を入力してみる</a><br>
+    こちらのシリーズの#4～#6を参考に分類器を実装します。<br><br>
+
+    
+    <h2>●コード全文</h2>
+    <img src="images/年代推定CNNコード全文.png" width="60%"><br><br>
+    ●学習結果(二枚)<br>
+    <img src="images/年代推定の学習結果1.png" width="60%"><br><br>
+    <img src="images/年代推定の学習結果2.png" width="60%"><br><br>
+    
+
+    <h2>●参考にしたサイト</h2>
+    ・https://qiita.com/Nabetani/items/bf0f17924e11f8e87b53<br>
+    ・https://data-viz-lab.com/overfitting<br><br>
+
+    今回の投稿はここまで。ありがとうございました。
+
+</body>
